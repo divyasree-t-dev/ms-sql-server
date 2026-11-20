@@ -1,0 +1,40 @@
+
+DAY 9 - SET 1
+CURSOR VS SET-BASED PROCESSING
+
+1. CURSOR APPROACH
+
+- Processes records one at a time.
+- Uses FETCH, OPEN, CLOSE and DEALLOCATE.
+- Useful when each record requires individual processing.
+- Usually slower for large datasets.
+- Requires more processing overhead.
+
+2. SET-BASED APPROACH
+
+- Processes multiple records using a single SQL statement.
+- Uses INSERT INTO SELECT with NOT EXISTS.
+- Generally faster and more efficient.
+- Suitable for processing large datasets.
+- Reduces row-by-row processing overhead.
+
+3. COMPARISON
+
+Cursor:
+- Row-by-row processing.
+- More procedural.
+- Useful for individual record operations.
+
+Set-Based:
+- Processes multiple rows together.
+- More efficient for bulk operations.
+- Preferred in most SQL Server scenarios.
+
+4. CONCLUSION
+
+Set-based processing is generally preferred in SQL Server
+because it reduces row-by-row operations and improves
+performance.
+
+Cursors are useful when individual record processing
+requires separate operations for each row.
