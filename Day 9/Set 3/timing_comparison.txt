@@ -1,0 +1,35 @@
+# Execution Time Comparison
+
+## Objective
+Compare cursor-based processing and set-based processing for inserting low-balance notifications.
+
+## Methods
+
+### 1. Cursor-Based Processing
+- Fetches subscribers one by one.
+- Checks the balance condition.
+- Inserts a notification for each eligible subscriber.
+
+### 2. Set-Based Processing
+- Uses a single INSERT...SELECT statement.
+- Identifies all eligible subscribers.
+- Inserts notifications in one operation.
+
+## Execution Results
+
+| Method | Execution Time (ms) | Records Inserted |
+|---|---:|---:|
+| Cursor | Fill after execution | Fill after execution |
+| Set-Based | Fill after execution | Fill after execution |
+
+## Observation
+
+Both approaches successfully identify subscribers whose prepaid balance is below 50 currency units and insert notification records.
+
+The set-based approach generally performs better because it processes multiple records in a single SQL statement rather than handling subscribers individually.
+
+Actual execution times depend on the number of subscribers, database size, indexing and system load.
+
+## Conclusion
+
+Set-based processing is generally more efficient and scalable than cursor-based processing for bulk notification insertion. Cursor processing is useful when individual row-by-row operations are necessary.
